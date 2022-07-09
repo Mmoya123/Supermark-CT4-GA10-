@@ -1,19 +1,19 @@
-
-importar  Java . yo _ IOExcepción ;
-importar  Java . sql . fecha ;
-importar  Java . útil _ escáner ;
-
- Registro de clase  pública {
-
-	public  static  void  main ( String [] args ) lanza  IOException {
-		
-		CRUDprducto crud = new CRUDproducto();
-    Fecha  fecha = nueva  Fecha ( 101 , 8 , 28 );
-
-		Usuario  user = new  Usuario ( "Santiago" , "Ruiz" , "ybn3421" , "santiruiz2001@outlook.com" , 43640893 , fecha );{
-
+ublic void registro(Producto producto) {
+		this.sql = "INSERT INTO producto " + 
+				"(id,nombre,apellido,contraseña,correo,dni,nacimiento_fecha)" + 
+				"VALUE ( " +
+				producto.getId() + " ,' " +
+				producto.getNombre() + " ','" + 
+				producto.getApellido() + " ',' " +
+				producto.getContrasenia() + " ',' " +
+				producto.getCorreo() + " ', " +
+				producto.getDni() + " ,' " +
+				producto.getNacimiento_fecha() +" ')";
+	
+		try {
+			conexion.getStmt().executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("Producto Registrado");
 		}
-basura_producto (producto);
-}
-
-}
